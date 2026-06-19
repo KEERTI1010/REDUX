@@ -3,8 +3,12 @@ const App = () => {
     return(
         <div>
           <h1>0</h1>
-          <button>Increment</button>
-          <button>Decrement</button>  
+          <button onClick={() => {
+
+          }}>Increment</button>
+          <button onClick = {() => {
+
+          }}>Decrement</button>  
         </div>
     )
 }
