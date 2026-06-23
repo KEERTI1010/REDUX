@@ -4,14 +4,14 @@ import { useState } from "react";
 export const counterSlice = createSlice({
     name:"counter",
     initialState:{value:0},
-    reducer:{
+    reducers:{
         increment:(state) => {
             state.value = state.value + 1
         },
-        decrement : (state) => { state.value - 1
+        decrement : (state) => { state.value = state.value - 1
         },
-        incrementByAmount: (state , actions) => {
-            state.value =state.value + actions.payload
+        incrementByAmount: (state , action) => {
+            state.value =state.value + action.payload
         }
     }
 })

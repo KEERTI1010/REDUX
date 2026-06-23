@@ -22,7 +22,7 @@ const App = () => {
           <input
           value = {num}
           type = "number"
-          onChange ={(e) => {setNum(e.target)}}
+          onChange ={(e) => {setNum(e.target.value)}}
           ></input>
 
           <button
