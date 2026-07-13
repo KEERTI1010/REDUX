@@ -7,9 +7,9 @@ const SearchBar = () => {
   return (
     <div>
         <form>
-            <input type="text
-             placeholder="search anything />
-            <button>Search</button>
+            <input className = "border-white border-2 text-center m-4 p-2 rounded-b-md px-4 text-xl text-white " type="text"
+             placeholder = 'Search Anything....'  />
+            <button className = "border-white border-2 text-center m-4 p-2 rounded-b-md px-4 text-xl text-white ">Search</button>
         </form>
     </div>
   )
