@@ -1,4 +1,5 @@
 // import React from 'react'
+import ResultGrid from './components/ResultGrid'
 import SearchBar from './components/SearchBar'
 import Tabs from './components/Tabs'
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <div className='h-screen w-full bg-gray-950 text-amber-50'>
         <SearchBar />
         <Tabs />
+        <ResultGrid />
     </div>
   )
 }
