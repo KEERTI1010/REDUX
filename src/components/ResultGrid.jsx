@@ -3,37 +3,32 @@ import {fetchPhotos,fetchVideos,fetchGIF} from "../api/mediaApi"
 import { setQuery,setLoading,setError,setResults } from "../redux/features/searchSlice"
 import { useEffect } from "react"
 
-
-
-
 const ResultGrid = () => {
 
     const {query,activeTab,results,loading,error} = useSelector((store)=> store.search)
-    
-    const getData = async ()=>{
 
-        let data
+    useEffect(function (){
 
-        if(activeTab == "photos"){
-            data = await fetchPhotos(query)
-        }
-        if(activeTab == "videos"){
-            data = await fetchVideos(query)
-        }
-        if(activeTab == "gif"){
-            data = await fetchGIF(query)
-        }
-        console.log(data);
+        const getData = async ()=>{
+
+            let data
+            if(activeTab == "photos"){
+                data = await fetchPhotos(query)
+            }
+            if(activeTab == "videos"){
+                data = await fetchVideos(query)
+            }
+            if(activeTab == "gif"){
+                data = await fetchGIF(query)
+            }
+            console.log(data);
     }
 
-    useEffect(function(){
-        
         getData()
     }, [query,activeTab])
-
     return (
     <div>
-        <button>Get Data</button>
+        
     </div>
   )
 }
