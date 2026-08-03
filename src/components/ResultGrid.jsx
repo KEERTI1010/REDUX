@@ -13,13 +13,16 @@ const ResultGrid = () => {
 
             let data
             if(activeTab == "photos"){
-                data = await fetchPhotos(query)
+                let response = await fetchPhotos(query)
+                data = response.results
             }
             if(activeTab == "videos"){
-                data = await fetchVideos(query)
+                let response = await fetchVideos(query)
+                data = response.videos
             }
             if(activeTab == "gif"){
-                data = await fetchGIF(query)
+                let response = await fetchGIF(query)
+                data = response.data;
             }
             console.log(data);
     }
