@@ -2,8 +2,10 @@ import { useDispatch, useSelector } from "react-redux"
 import {fetchPhotos,fetchVideos,fetchGIF} from "../api/mediaApi"
 import { setQuery,setLoading,setError,setResults } from "../redux/features/searchSlice"
 import { useEffect } from "react"
+import ResultCard from "./ResultCard"
 
 const ResultGrid = () => {
+    const dispatch =  useDispatch()
 
     const {query,activeTab,results,loading,error} = useSelector((store)=> store.search)
 
@@ -12,7 +14,9 @@ const ResultGrid = () => {
 
         const getData = async ()=>{
 
-            let data
+        try {
+            dispatch(setLoading())
+            let data = []
             if(activeTab == "photos"){
                 let response = await fetchPhotos(query)
                 data = response.results.map((item)=>({
@@ -43,17 +47,29 @@ const ResultGrid = () => {
                     src:item.images.original.url
                 }))
             }
-            console.log(data);
+            dispatch(setResults(data))
+        } catch (err) {
+            dispatch(setError(err.message))
+        }   
     }
 
         if (!query.trim()) return
 
         getData()
     }, [query,activeTab])
+
+    if(error) return <h1>Error</h1>
+    if(loading) return <h1>Loading...</h1>
+
     return (
-    <div>
-        
-    </div>
+        <div className="flex flex-wrap gap-5 rounded-2xl">
+            {results.map((item,idx) => {
+                return <div key = {idx}>
+                    <ResultCard item={item} />
+                </div>
+            })}
+        </div>
+   
   )
 }
 
