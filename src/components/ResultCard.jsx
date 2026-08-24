@@ -2,7 +2,7 @@ import React from 'react'
 
 const ResultCard = () => {
   return (
-    <div className='w-96 h-96 bg-amber-50 '>
+    <div className='w-56 h-56 bg-amber-200 '>
       
     </div>
   )
