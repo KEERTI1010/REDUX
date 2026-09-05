@@ -62,7 +62,7 @@ const ResultGrid = () => {
     if(loading) return <h1>Loading...</h1>
 
     return (
-        <div className="flex flex-wrap gap-5 rounded-2xl">
+        <div className="w-full flex justify-between flex-wrap gap-7 overflow-auto  ">
             {results.map((item,idx) => {
                 return <div key = {idx}>
                     <ResultCard item={item} />
