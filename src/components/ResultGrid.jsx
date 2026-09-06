@@ -24,7 +24,8 @@ const ResultGrid = () => {
                     type:'photo',
                     title:item.alt_description,
                     thumbnail:item.urls.small,
-                    src:item.urls.full
+                    src:item.urls.full,
+                    url:item.links.html
                 }))
             }
             if(activeTab == "videos"){
@@ -34,17 +35,20 @@ const ResultGrid = () => {
                     type:'video',
                     title:item.user.name || 'video',
                     thumbnail:item.image,
-                    src:item.video_files[0].link
+                    src:item.video_files[0].link,
+                    url:item.url
                 }))
             }
             if(activeTab == "gif"){
                 let response = await fetchGIF(query)
+                
                 data = response.data.map((item)=>({
                     id:item.id,
                     type:'gif',
                     title:item.title || 'GIF',
                     thumbnail:item.images.fixed_height_small.url,
-                    src:item.images.original.url
+                    src:item.images.original.url,
+                    url:item.url
                 }))
             }
             dispatch(setResults(data))
@@ -62,10 +66,12 @@ const ResultGrid = () => {
     if(loading) return <h1>Loading...</h1>
 
     return (
-        <div className="w-full flex justify-between flex-wrap gap-7 overflow-auto  ">
+        <div className="w-full flex justify-between flex-wrap gap-6 overflow-auto px-10  ">
             {results.map((item,idx) => {
                 return <div key = {idx}>
-                    <ResultCard item={item} />
+                    <a target="_blank" href="{item.url">
+                        <ResultCard item={item} />
+                    </a>
                 </div>
             })}
         </div>
