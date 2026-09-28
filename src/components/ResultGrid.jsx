@@ -59,7 +59,7 @@ const ResultGrid = () => {
         if (!query.trim()) return
 
         getData()
-    }, [query,activeTab])
+    }, [query,activeTab,dispatch])
 
     if(error) return <h1>Error</h1>
     if(loading) return <h1>Loading...</h1>
@@ -68,9 +68,7 @@ const ResultGrid = () => {
         <div className="w-full flex justify-between flex-wrap gap-6 overflow-auto px-10  ">
             {results.map((item,idx) => {
                 return <div key = {idx}>
-                    <a target="_blank" href="{item.url">
                         <ResultCard item={item} />
-                    </a>
                 </div>
             })}
         </div>
