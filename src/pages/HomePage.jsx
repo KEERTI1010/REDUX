@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div>
 
-        <div className='text-center'>
+        <div className='text-center p-5 bg-blue-900 text-2xl font-semibold'>
             Media Search
         </div>
 
