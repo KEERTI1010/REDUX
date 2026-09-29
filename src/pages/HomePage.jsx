@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ResultGrid from '../components/ResultGrid'
 import SearchBar from '../components/SearchBar'
 import Tabs from '../components/Tabs'
@@ -6,6 +6,11 @@ import Tabs from '../components/Tabs'
 const HomePage = () => {
   return (
     <div>
+
+        <div className='text-center'>
+            Media Search
+        </div>
+
         <SearchBar />
         <Tabs />
         <ResultGrid />
