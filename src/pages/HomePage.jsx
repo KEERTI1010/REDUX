@@ -8,9 +8,10 @@ const HomePage = () => {
   return (
     <div>
 
-        <div className=' py-5 px-10 bg-[var(--c1)]'>
+        <div className=' py-5 px-10 bg-(--c1)'>
            <h2 className='text-2xl font-medium'>Media Search</h2>
-
+            <Link>Search</Link>
+            <Link>Collection</Link>
            <div>
 
            </div>
