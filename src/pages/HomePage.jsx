@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div>
 
-        <div className=' p-5 bg-blue-900'>
+        <div className=' py-5 px-10 bg-[var(--c1)]'>
            <h2 className='text-2xl font-medium'>Media Search</h2>
 
            <div>
