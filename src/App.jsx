@@ -5,7 +5,8 @@ import CollectionPage from "./pages/CollectionPage"
 const App = () => {
   return (
     <div className='h-screen w-full bg-black text-amber-50'>
-        
+    
+    <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path = '/collection' element={<CollectionPage />} />
