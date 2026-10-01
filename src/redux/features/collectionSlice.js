@@ -8,15 +8,32 @@ const collectionSlice = createSlice({
     initialState,
     reducers:{
         addCollection:(state,action)=>{
-            state.items.push(action.playload);
+           const alreadyExists = state.items.find(
+            item => item.id === action.payload.id
+           )
+           if(!alreadyExists){
+                state.items.push(action.playload);
+                localStorage.setItem('collection',JSON.stringify(state.items))
+           }
+        },
+        removeCollection : (state,action)=>{
+                state.items = state.items.filter(
+                item => item.id !== action.payload
+            )
             localStorage.setItem('collection',JSON.stringify(state.items))
         },
-        removeCollection(state,action)=>{
-
-        },
-        clearCollection(state,action)=>{
-
+        clearCollection : (state) =>{
+            state.items =[] 
+            localStorage.removeItem('collection')
         }
 
     }
-})
+});
+
+export const {
+    addCollection,
+    removeCollection,
+    clearCollection
+} = collectionSlice.actions;
+
+export default collectionSlice;
