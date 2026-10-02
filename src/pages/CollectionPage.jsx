@@ -13,7 +13,7 @@ const CollectionPage = () => {
   return (
     <div className=' overflow-auto px-10 py-6'>
       <div className='flex justify-between mb-6'>
-        <h2 className='text-xl font-medium'>Your Collection </h2>
+        <h2 className='text-xl font-medium'>My Collection </h2>
         <button onClick={() => {
           clearAll()
         }} 
